@@ -1,0 +1,182 @@
+<div class="container">
+
+  <div class="buttona">
+      <button type="button" 
+      class="btn btn-outline-secondary btn-lg" 
+      data-toggle="modal" 
+      data-target="#add_new_project">
+      Add project</button>
+  </div>
+    <!-- The Modal for add new project-->
+  <div class="modal fade" id="add_new_project">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Add new project</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="card" style="width:460px">
+              <!-- <div class="card-body"> -->
+              <div class="container">
+                <form [formGroup]="addProjectForm" (ngSubmit)="onSubmitAddProject()" class="was-validated">
+
+                  <div class="form-group">
+                    <label for="pname">Project Name</label>
+                    <input 
+                    formControlName = "ProjectName"
+                    type="text" 
+                    class="form-control" 
+                    id="pname" 
+                    placeholder="Enter Project Name" 
+                    required>
+                  </div>
+                  <div class="form-group">
+                    <label for="ptype">Project Type</label>
+                    <input 
+                    formControlName="ProjectType"
+                    type="text" 
+                    class="form-control" 
+                    id="ptype" 
+                    placeholder="Web app/Android/Desk App..."
+                    required>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Used Language </label>
+                    <input 
+                    formControlName="UsedLanguage"
+                    type="text" 
+                    class="form-control" 
+                    id="email" 
+                    placeholder="C/C++/Java?python..." 
+                    required>
+                  </div>
+                  <div class="form-group">
+                    <label for="gitlink">GitHub Link</label>
+                    <input 
+                    formControlName="GitHubLink"
+                    type="link" 
+                    class="form-control" 
+                    id="gitlink" 
+                    placeholder="GitHub Project Link" 
+                    required>
+                  </div>
+                  <div class="form-group">
+                    <label for="ContributorName">Contributor Name</label>
+                    <input 
+                    formControlName="ContributorName"
+                    type="text" 
+                    class="form-control" 
+                    id="ContributorName" 
+                    placeholder="Contributor Name" 
+                    required>
+                  </div>
+                  <div class="form-group">
+                    <label for="ContributorEmail">Contributor Email</label>
+                    <input 
+                    formControlName="ContributorEmail"
+                    type="email" 
+                    class="form-control" 
+                    id="ContributorEmail" 
+                    placeholder="Contributor's Email@diu.edu.bd" 
+                    required>
+                  </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+              </div>
+              <!-- </div> -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Modal complete for add new project-->
+
+
+    <!-- The Modal for searcch project-->
+    <div class="modal fade" id="search_project">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Search project</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="card" style="width:460px">
+              <!-- <div class="card-body"> -->
+              <div class="container">
+                <form [formGroup]="searchForm" (ngSubmit)="onSubmitSearchProject()" class="was-validated">
+
+                  <div class="form-group">
+                    <label>Project Name</label>
+                    <input 
+                    formControlName="ProjectName"
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Enter Project Name" 
+                    required>
+                  </div>
+                  <div class="form-group">
+                    <label>Project Type</label>
+                    <input 
+                    formControlName="ProjectType"
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Web app/Android/Desk App..."
+                    required>
+                  </div>
+                  <div class="form-group">
+                    <label>Used Language </label>
+                    <input 
+                    formControlName="UsedLanguage"
+                    type="text" 
+                    class="form-control" 
+                    placeholder="C/C++/Java?python..." 
+                    required>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+                <br>
+              </div>
+              <!-- </div> -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- Modal complete for search project-->
+
+    </div>
+
+    <br>
+    <div class="page-header">
+      <h4 style="text-align: center">My projects</h4>
+    </div>
+
+    <div class="jumbotron text-center">
+
+      <div class="container mt-3">
+        <input class="form-control"  id="myInput" type="text" placeholder="Search..">
+        <button class="btn btn-lg btn-primary" (click)="onSearch()">Search</button>
+        <br>
+        <ul class="list-group" id="myList" *ngFor="let project of project">
+          <li class="list-group-item list-group-item-action">
+            <h5>{{ project.ProjectName }}</h5> <br>
+            <p>{{ project.ProjectType }}</p> <br>
+            <p>{{ project.UsedLanguage }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+</div>
+

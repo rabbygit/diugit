@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" >
+    <p class="display-4"><span class="badge badge-secondary">dGit</span></p>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">    
+      <div *ngIf="auth">
+        <li class="nav-item">
+          <a class="nav-link"  routerLink="/home">Home</a>
+        </li>
+      </div>
+      <li class="nav-item" data-toggle="modal" data-target="#search_project">
+        <a class="nav-link" >Search project</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about">About</a>
+      </li>
+      <div *ngIf="auth">
+      <li class="nav-item">
+        <a class="nav-link"  (click)="logOut()">Log Out</a>
+      </li>
+    </div>
+    </ul>
+  </div>
+</nav>
